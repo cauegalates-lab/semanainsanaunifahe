@@ -25,10 +25,12 @@ LEITURA DOS DADOS
 - Coluna B: dia da venda
 - Coluna C: mês da venda
 - Coluna E: nome do líder
-- Coluna G: conta 1 Quitado quando o conteúdo possui a palavra QUITADO
+- Coluna G: conta 1 Quitado quando o conteúdo possui QUITADO ou CARTÃO
+- BOLETO e qualquer outra forma de pagamento contam somente como matrícula/venda
 - Coluna R: soma a quantidade de cursos/matrículas
 - Atualização automática: a cada 60 segundos
-- Ordenação: maior quantidade de matrículas; em caso de empate, maior quantidade de quitados
+- Classificação: é obrigatório ter ao menos 1 Quitado para entrar no pódio
+- Ordenação: classificados primeiro; depois maior quantidade de matrículas e de quitados
 
 Se os nomes estiverem em outra coluna, altere CONFIG_RANKING_LIDERES.COLUNA_NOME no início do Code.gs.
 Os números das colunas seguem o padrão: E = 5, G = 7 e R = 18.

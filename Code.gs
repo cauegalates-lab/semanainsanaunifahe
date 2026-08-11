@@ -87,7 +87,8 @@ var CONFIG_META_MILHAO = {
  * - coluna B: dia da venda
  * - coluna C: mês da venda
  * - coluna E: nome do líder
- * - coluna G: situação da venda (conta quando contém "QUITADO")
+ * - coluna G: forma/situação da venda
+ *   (QUITADO ou CARTÃO contam como Quitado; os demais contam só como venda)
  * - coluna R: quantidade de cursos/matrículas
  */
 var CONFIG_RANKING_LIDERES = {
@@ -393,7 +394,7 @@ function montarDadosRankingLideres() {
 
   var cache = CacheService.getScriptCache();
   var cacheKey = [
-    "ranking_lideres_v4",
+    "ranking_lideres_v5",
     diaHoje,
     mesHoje
   ].join("_");
@@ -477,9 +478,12 @@ function montarDadosRankingLideres() {
         return;
       }
 
-      if (
-        normalizarTexto(linha[indiceQuitado]).indexOf("QUITADO") !== -1
-      ) {
+      var tipoPagamento = normalizarTexto(linha[indiceQuitado]);
+      var contaComoQuitado =
+        tipoPagamento.indexOf("QUITADO") !== -1 ||
+        tipoPagamento.indexOf("CARTAO") !== -1;
+
+      if (contaComoQuitado) {
         lider.quitados++;
       }
 
