@@ -1,5 +1,5 @@
 // Cole entre as aspas a URL /exec da implantação do Google Apps Script.
-const GOOGLE_SCRIPT_URL = '';
+const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzXCgSQ7yrj3evtyX6U9D7B5uBVlmtBWC5vayHc3yA24MujmrSQtEgERn9oFORDzmYv/exec';
 const AUTO_REFRESH_MS = 60000;
 
 const PROFILE_PHOTOS = {
