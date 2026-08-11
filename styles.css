@@ -108,12 +108,16 @@ body{margin:0;background:var(--navy);color:var(--white);font-family:Arial,sans-s
 @keyframes spin{to{transform:rotate(360deg)}
 }
 @media(min-width:900px){
-.battle-page{height:100vh;height:100svh;min-height:100vh;min-height:100svh;overflow:hidden}
+.battle-page{height:calc(100vh - 20px);height:calc(var(--app-height,100svh) - 20px);min-height:0;overflow:hidden}
 .page-header,.hero-title,.bottom-bar{flex-shrink:0}
 .battle-content{min-height:0;overflow:hidden}
 .podium-zone,.ranking-zone{height:100%;min-height:0}
-.ranking-zone{align-self:stretch;justify-content:center}
+.ranking-zone{align-self:stretch;justify-content:flex-start;padding:5px 0 10px}
 .ranking-list{min-height:0}
+.hero-title{align-self:flex-start;width:min(920px,72vw);margin-left:clamp(55px,6vw,120px);text-align:left}
+.hero-title h1{justify-content:flex-start}
+.hero-title h1 span{font-size:clamp(48px,4.2vw,72px)}
+.hero-title h1 strong{font-size:clamp(45px,4vw,68px)}
 }
 @media(min-width:900px) and (max-width:1450px){
 .battle-content{grid-template-columns:minmax(360px,.95fr) minmax(460px,1.2fr);gap:clamp(14px,2vw,38px)}
@@ -130,19 +134,19 @@ body{margin:0;background:var(--navy);color:var(--white);font-family:Arial,sans-s
 .footer-meta small{margin-top:0;font-size:6px}
 }
 @media(min-width:900px) and (max-height:900px){
-.battle-page{height:100vh;height:100svh;min-height:100vh;min-height:100svh;overflow:hidden;padding-top:10px}
+.battle-page{height:calc(100vh - 20px);height:calc(var(--app-height,100svh) - 20px);min-height:0;overflow:hidden;padding-top:10px}
 .page-header,.hero-title,.bottom-bar{flex-shrink:0}
 .page-header{min-height:50px}
 .brand-logo{width:200px}
 .day-flag{padding:4px 18px 4px 5px;font-size:11px}
 .day-flag b{width:32px;height:32px;font-size:16px}
 .sync-button{padding:8px 12px;font-size:10px}
-.hero-title{margin:4px auto 9px;padding:0 18px 10px}
-.title-kicker{font-size:8px}
-.hero-title h1{gap:16px;margin-top:0}
-.hero-title h1 span{font-size:clamp(50px,5.1vw,76px)}
-.hero-title h1 strong{font-size:clamp(47px,4.9vw,72px)}
-.hero-title p{margin-top:8px;font-size:8px}
+.hero-title{width:min(760px,68vw);margin:2px 0 6px clamp(55px,6vw,105px);padding:0 14px 6px;text-align:left}
+.title-kicker{font-size:7px}
+.hero-title h1{justify-content:flex-start;gap:13px;margin-top:0}
+.hero-title h1 span{font-size:48px}
+.hero-title h1 strong{font-size:45px}
+.hero-title p{display:none}
 .battle-content{min-height:0;gap:clamp(20px,2.8vw,46px);overflow:hidden;padding-bottom:5px}
 .podium-zone{min-height:0;height:100%}
 .podium-grid{padding-top:12px}
@@ -167,14 +171,15 @@ body{margin:0;background:var(--navy);color:var(--white);font-family:Arial,sans-s
 .ranking-heading strong{font-size:17px}
 .data-state{font-size:8px}
 .column-labels{padding-bottom:4px;font-size:7px}
-.ranking-list{gap:5px}
-.ranking-row{min-height:55px;padding-block:5px}
+.ranking-list{gap:4px}
+.ranking-row{min-height:55px;padding-block:4px}
 .row-position{font-size:20px}
 .row-1 .row-position{font-size:27px}
-.row-avatar{width:42px;height:42px}
-.row-name strong{font-size:14px}
+.row-avatar{width:45px;height:45px}
+.row-name strong{font-size:15px}
 .row-name small{font-size:7px}
-.result b{font-size:28px}
+.result b{font-size:30px}
+.result-faturamento b{font-size:15px}
 .bottom-bar{min-height:54px;padding-block:5px}
 .point-badge b{font-size:15px}
 .totals b{font-size:21px}
@@ -183,10 +188,9 @@ body{margin:0;background:var(--navy);color:var(--white);font-family:Arial,sans-s
 .battle-page{padding-top:6px}
 .page-header{min-height:44px}
 .brand-logo{width:180px}
-.hero-title{margin:2px auto 6px;padding-bottom:7px}
-.hero-title h1 span{font-size:56px}
-.hero-title h1 strong{font-size:53px}
-.hero-title p{margin-top:5px}
+.hero-title{margin:0 0 4px clamp(48px,5vw,90px);padding-bottom:4px}
+.hero-title h1 span{font-size:42px}
+.hero-title h1 strong{font-size:40px}
 .battle-content{padding-bottom:2px}
 .podium-grid{padding-top:4px}
 .medal{width:27px;height:27px;margin-bottom:3px;font-size:13px}
@@ -202,10 +206,11 @@ body{margin:0;background:var(--navy);color:var(--white);font-family:Arial,sans-s
 .place-2 .step{height:78px}
 .ranking-heading{padding-bottom:4px}
 .column-labels{padding-bottom:2px}
-.ranking-list{gap:4px}
-.ranking-row{min-height:49px;padding-block:3px}
-.row-avatar{width:38px;height:38px}
-.result b{font-size:26px}
+.ranking-list{gap:3px}
+.ranking-row{min-height:48px;padding-block:2px}
+.row-avatar{width:40px;height:40px}
+.result b{font-size:27px}
+.result-faturamento b{font-size:14px}
 .bottom-bar{min-height:46px;padding-block:3px}
 }
 @media(min-width:900px) and (max-height:650px){
@@ -215,11 +220,11 @@ body{margin:0;background:var(--navy);color:var(--white);font-family:Arial,sans-s
 .day-flag{gap:6px;padding:2px 12px 2px 3px;font-size:8px}
 .day-flag b{width:26px;height:26px;font-size:13px}
 .sync-button{padding:6px 9px;font-size:8px}
-.hero-title{margin:0 auto 3px;padding:0 12px 4px}
-.title-kicker{font-size:6px}
+.hero-title{margin:0 0 2px clamp(40px,4vw,75px);padding:0 12px 3px}
+.title-kicker{display:none}
 .hero-title h1{gap:11px}
-.hero-title h1 span{font-size:44px}
-.hero-title h1 strong{font-size:41px}
+.hero-title h1 span{font-size:34px}
+.hero-title h1 strong{font-size:32px}
 .hero-title p{display:none}
 .battle-content{gap:14px;padding-bottom:0}
 .podium-grid{padding-top:0}
@@ -245,14 +250,14 @@ body{margin:0;background:var(--navy);color:var(--white);font-family:Arial,sans-s
 .ranking-heading strong{font-size:13px}
 .data-state{font-size:6px}
 .column-labels{padding-bottom:1px;font-size:6px}
-.ranking-list{gap:3px}
-.ranking-row{min-height:40px;padding-block:2px}
+.ranking-list{gap:2px}
+.ranking-row{min-height:39px;padding-block:1px}
 .row-position{font-size:16px}
 .row-1 .row-position{font-size:21px}
-.row-avatar{width:31px;height:31px}
-.row-name strong{font-size:11px}
+.row-avatar{width:34px;height:34px}
+.row-name strong{font-size:12px}
 .row-name small{margin-top:1px;font-size:5px}
-.result b{font-size:20px}
+.result b{font-size:22px}
 .result-faturamento b{font-size:12px}
 .bottom-bar{min-height:40px;padding-block:2px}
 .point-badge>span{font-size:20px}
@@ -265,8 +270,9 @@ body{margin:0;background:var(--navy);color:var(--white);font-family:Arial,sans-s
 @media(min-width:900px) and (max-height:560px){
 .page-header{min-height:32px}
 .brand-logo{width:132px}
-.hero-title h1 span{font-size:38px}
-.hero-title h1 strong{font-size:36px}
+.title-kicker{display:none}
+.hero-title h1 span{font-size:30px}
+.hero-title h1 strong{font-size:28px}
 .podium-avatar{width:64px;height:64px}
 .place-1 .podium-avatar{width:80px;height:80px}
 .podium-person h2{min-height:20px;font-size:10px}
@@ -278,12 +284,12 @@ body{margin:0;background:var(--navy);color:var(--white);font-family:Arial,sans-s
 .place-2 .step{height:49px}
 .ranking-heading strong{font-size:11px}
 .column-labels{font-size:5px}
-.ranking-list{gap:2px}
-.ranking-row{min-height:34px;padding-block:1px}
-.row-avatar{width:27px;height:27px}
+.ranking-list{gap:1px}
+.ranking-row{min-height:33px;padding-block:0}
+.row-avatar{width:29px;height:29px}
 .row-name strong{font-size:10px}
 .row-name small{display:none}
-.result b{font-size:18px}
+.result b{font-size:19px}
 .result-faturamento b{font-size:11px}
 .bottom-bar{min-height:36px}
 }
@@ -360,4 +366,83 @@ body{margin:0;background:var(--navy);color:var(--white);font-family:Arial,sans-s
 .result-faturamento b{font-size:11px}
 .bottom-bar{margin-inline:-8px;padding-inline:8px}
 .totals b{font-size:16px}
+}
+
+/* Modo para Smart TVs e navegadores horizontais que reportam 600–899px. */
+.compact-tv{overflow:hidden}
+.compact-tv .battle-page{height:calc(100vh - 20px);height:calc(var(--app-height,100vh) - 20px);min-height:0;overflow:hidden;padding:3px 7px 0}
+.compact-tv .page-header,.compact-tv .hero-title,.compact-tv .bottom-bar{flex-shrink:0}
+.compact-tv .page-header{grid-template-columns:1fr auto 1fr;min-height:28px;gap:5px}
+.compact-tv .brand-logo{width:108px}
+.compact-tv .day-flag{gap:4px;padding:1px 8px 1px 2px;font-size:7px;box-shadow:inset 0 1px #64b7ff,0 3px 0 #001a58}
+.compact-tv .day-flag b{width:21px;height:21px;font-size:10px}
+.compact-tv .sync-button{grid-column:auto;justify-self:end;margin:0;padding:4px 6px;font-size:7px;box-shadow:inset 0 1px #ffbf83,0 3px 0 #6e1c00}
+.compact-tv .hero-title{align-self:flex-start;width:min(72vw,520px);margin:0 0 1px 5vw;padding:0 6px 2px;text-align:left}
+.compact-tv .title-kicker{font-size:5px}
+.compact-tv .hero-title h1{display:flex;justify-content:flex-start;gap:7px;margin:0;white-space:nowrap}
+.compact-tv .hero-title h1 span{font-size:26px}
+.compact-tv .hero-title h1 strong{font-size:24px}
+.compact-tv .hero-title p{display:none}
+.compact-tv .battle-content{grid-template-columns:minmax(210px,.82fr) minmax(350px,1.3fr);min-height:0;gap:8px;overflow:hidden;padding-bottom:0}
+.compact-tv .podium-zone,.compact-tv .ranking-zone{width:auto;height:100%;min-height:0;margin:0;padding:0}
+.compact-tv .ranking-zone{align-self:stretch;justify-content:flex-start;padding:2px 0 8px}
+.compact-tv .podium-grid{padding-top:0}
+.compact-tv .medal{width:19px;height:19px;margin-bottom:1px;font-size:9px;box-shadow:0 2px 0 #6d1c00}
+.compact-tv .place-1 .medal{height:22px;font-size:22px}
+.compact-tv .podium-avatar{width:52px;height:52px;padding:2px;border-width:2px;box-shadow:inset 0 0 0 2px #05214c,0 4px 0 #001b50}
+.compact-tv .place-1 .podium-avatar{width:64px;height:64px;box-shadow:inset 0 0 0 2px #482100,0 4px 0 #8b2800}
+.compact-tv .podium-person>small{margin-top:2px;font-size:5px}
+.compact-tv .podium-person h2{max-width:76px;min-height:19px;margin:1px 0;font-size:9px}
+.compact-tv .podium-results{gap:5px}
+.compact-tv .podium-results b{font-size:17px}
+.compact-tv .podium-results span{font-size:4px}
+.compact-tv .podium-results i{height:17px}
+.compact-tv .podium-revenue{margin-top:1px;padding:2px 4px}
+.compact-tv .podium-revenue b{font-size:8px}
+.compact-tv .podium-revenue span{font-size:4px}
+.compact-tv .step{height:40px;margin-top:2px;padding-top:2px}
+.compact-tv .step b{font-size:24px}
+.compact-tv .place-1 .step{height:50px}
+.compact-tv .place-2 .step{height:45px}
+.compact-tv .ranking-heading{padding:0 2px 1px}
+.compact-tv .orange-star{font-size:13px}
+.compact-tv .ranking-heading strong{font-size:10px}
+.compact-tv .data-state{font-size:5px}
+.compact-tv .data-state i{width:5px;height:5px}
+.compact-tv .column-labels{grid-template-columns:1fr 30px 34px 70px;padding:0 4px 1px 54px;font-size:4px}
+.compact-tv .ranking-list{gap:1px;min-height:0}
+.compact-tv .ranking-row{grid-template-columns:20px 26px minmax(52px,1fr) 30px 34px 70px;gap:2px;min-height:30px;padding:1px 3px;border-left-width:3px;border-radius:5px;box-shadow:inset 0 1px rgba(255,255,255,.08),0 2px 0 #00163f}
+.compact-tv .row-position,.compact-tv .row-1 .row-position{font-size:13px}
+.compact-tv .row-avatar{width:26px;height:26px}
+.compact-tv .row-name strong{font-size:10px}
+.compact-tv .row-name small{display:none}
+.compact-tv .result b{font-size:16px}
+.compact-tv .result-faturamento b{font-size:9px}
+.compact-tv .bottom-bar{grid-template-columns:auto minmax(0,1fr) auto;min-height:34px;margin:0 -7px;padding:2px 7px}
+.compact-tv .point-badge{justify-content:flex-start;gap:4px}
+.compact-tv .point-badge>span{font-size:15px}
+.compact-tv .point-badge b{font-size:9px}
+.compact-tv .point-badge small{display:none}
+.compact-tv .totals{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:3px;margin:0;padding:0;border:0;text-align:center}
+.compact-tv .totals>span,.compact-tv .totals i{display:none}
+.compact-tv .totals b{display:flex;flex-direction:column;min-width:0;font-size:13px}
+.compact-tv .totals b small{display:block;margin-top:1px;font-size:4px}
+.compact-tv .footer-meta{grid-column:auto;justify-self:end;margin:0;text-align:right}
+.compact-tv .footer-meta p{display:none}
+.compact-tv .footer-meta small{margin:0;font-size:5px}
+
+@media(max-height:420px){
+.compact-tv .page-header{min-height:24px}
+.compact-tv .brand-logo{width:94px}
+.compact-tv .title-kicker{display:none}
+.compact-tv .hero-title h1 span{font-size:23px}
+.compact-tv .hero-title h1 strong{font-size:21px}
+.compact-tv .column-labels{display:none}
+.compact-tv .ranking-row{min-height:26px;padding-block:0}
+.compact-tv .podium-avatar{width:46px;height:46px}
+.compact-tv .place-1 .podium-avatar{width:56px;height:56px}
+.compact-tv .step{height:34px}
+.compact-tv .place-1 .step{height:42px}
+.compact-tv .place-2 .step{height:38px}
+.compact-tv .bottom-bar{min-height:31px}
 }

@@ -2,6 +2,30 @@
 const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzXCgSQ7yrj3evtyX6U9D7B5uBVlmtBWC5vayHc3yA24MujmrSQtEgERn9oFORDzmYv/exec';
 const AUTO_REFRESH_MS = 60000;
 
+// Usa a área realmente visível do navegador. Smart TVs podem calcular 100vh
+// incluindo barras ou regiões que ficam fora da tela.
+function syncVisibleViewport(){
+  const viewport=window.visualViewport;
+  const width=Math.round((viewport&&viewport.width)||window.innerWidth||document.documentElement.clientWidth);
+  const height=Math.round((viewport&&viewport.height)||window.innerHeight||document.documentElement.clientHeight);
+  document.documentElement.style.setProperty('--app-height',`${height}px`);
+  document.documentElement.style.setProperty('--app-width',`${width}px`);
+  document.body.classList.toggle('compact-tv',width>=600&&width<900&&width>height);
+}
+
+let viewportFrame=0;
+function scheduleViewportSync(){
+  cancelAnimationFrame(viewportFrame);
+  viewportFrame=requestAnimationFrame(syncVisibleViewport);
+}
+
+syncVisibleViewport();
+window.addEventListener('resize',scheduleViewportSync,{passive:true});
+window.addEventListener('orientationchange',()=>setTimeout(syncVisibleViewport,150),{passive:true});
+if(window.visualViewport){
+  window.visualViewport.addEventListener('resize',scheduleViewportSync,{passive:true});
+}
+
 const PROFILE_PHOTOS = {
   'Beatriz Cunha':'assets/profiles/beatriz-cunha.jpg',
   'Gabriel Gorgonio':'assets/profiles/gabriel-gorgonio.jpg',
