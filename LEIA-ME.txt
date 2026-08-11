@@ -1,0 +1,25 @@
+PAINEL BATALHA DOS LÍDERES — UNIFAHE
+
+COMO CONECTAR À PLANILHA
+
+1. Abra a planilha que possui a aba Vendas.
+2. Acesse Extensões > Apps Script.
+3. Apague o conteúdo existente somente se esse projeto estiver vazio. Se já houver código, adicione o conteúdo do arquivo Code.gs sem remover as funções atuais.
+4. Clique em Implantar > Nova implantação > Aplicativo da Web.
+5. Execute como: Você. Quem pode acessar: Qualquer pessoa.
+6. Copie a URL final que termina em /exec.
+7. Abra o arquivo app.js e cole essa URL na linha:
+   const GOOGLE_SCRIPT_URL = '';
+8. Envie index.html, styles.css e app.js para a raiz do repositório no GitHub.
+
+LEITURA DOS DADOS
+
+- Aba: Vendas
+- Coluna E: nome do líder
+- Coluna G: conta 1 Quitado quando o conteúdo possui a palavra QUITADO
+- Coluna R: soma a quantidade de cursos/matrículas
+- Atualização automática: a cada 60 segundos
+- Ordenação: maior quantidade de matrículas; em caso de empate, maior quantidade de quitados
+
+Se os nomes estiverem em outra coluna, altere COLUNA_NOME no início do Code.gs.
+Os números das colunas seguem o padrão: E = 5, G = 7 e R = 18.

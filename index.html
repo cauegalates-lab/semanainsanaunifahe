@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#020b23">
+  <title>Batalha dos Líderes | UNIFAHE</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="battle-page">
+    <div class="noise"></div><div class="orange-ring ring-left"></div><div class="orange-ring ring-right"></div><div class="blue-orb"></div><div class="dot-grid"></div>
+    <span class="spark spark-one">✦</span><span class="spark spark-two">✦</span><span class="spark spark-three">✦</span>
+
+    <header class="page-header">
+      <div class="wordmark"><img class="brand-logo" src="assets/logo-unifahe-topo.png" alt="UNIFAHE — Faculdade a Distância"></div>
+      <div class="day-flag"><b>2</b><span>TERÇA</span></div>
+      <button class="sync-button" id="syncButton"><span id="syncIcon">↻</span><span id="syncText">Atualizar dados</span></button>
+    </header>
+
+    <section class="hero-title">
+      <span class="title-kicker">★ DESAFIO DO DIA ★</span>
+      <h1><span>BATALHA</span><strong>DOS LÍDERES</strong></h1>
+      <p>O maior resultado assume o topo. Cada matrícula faz a diferença.</p>
+    </section>
+
+    <section class="battle-content">
+      <div class="podium-zone"><div class="podium-glow"></div><div class="podium-grid" id="podiumGrid"></div></div>
+
+      <div class="ranking-zone">
+        <div class="ranking-heading">
+          <div><span class="orange-star">★</span><strong>RANKING GERAL</strong></div>
+          <div class="data-state demo" id="dataState"><i></i><span>DADOS DE EXEMPLO</span></div>
+        </div>
+        <div class="column-labels"><span>LÍDER</span><span>QUITADOS</span><span>MATRÍCULAS</span></div>
+        <div class="ranking-list" id="rankingList"></div>
+      </div>
+    </section>
+
+    <footer class="bottom-bar">
+      <div class="point-badge"><span>★</span><div><b>1 PONTO</b><small>PARA O LÍDER VENCEDOR</small></div></div>
+      <div class="totals"><span>TOTAL DO DESAFIO</span><b id="totalQuitados">0 <small>QUITADOS</small></b><i></i><b id="totalMatriculas">0 <small>MATRÍCULAS</small></b></div>
+      <p id="lastUpdate">Dados sincronizados automaticamente pela aba Vendas</p>
+    </footer>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>
