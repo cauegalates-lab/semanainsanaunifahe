@@ -12,6 +12,13 @@ COMO USAR COM SEU APPS SCRIPT ATIVO
 8. Se criar outra implantação no futuro, substitua apenas o conteúdo da constante GOOGLE_SCRIPT_URL pela nova URL terminada em /exec.
 9. Envie index.html, styles.css, app.js e a pasta assets para a raiz do repositório no GitHub.
 
+PRÉVIA DO LINK NO WHATSAPP
+
+- O index.html já contém as tags Open Graph e a imagem assets/preview-whatsapp.png (1200x630) para o compartilhamento.
+- As URLs estão configuradas para: https://cauegalates-lab.github.io/semanainsanaunifahe/
+- Se o nome do repositório mudar, atualize as URLs das tags canonical, og:url, og:image e twitter:image no início do index.html.
+- O WhatsApp pode manter a prévia antiga em cache. Depois de publicar, teste enviando o link com ?v=2 no final.
+
 O painel acrescenta automaticamente a rota:
 ?rota=rankingLideres
 

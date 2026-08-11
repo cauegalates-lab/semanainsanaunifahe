@@ -101,7 +101,9 @@ body{margin:0;background:var(--navy);color:var(--white);font-family:Arial,sans-s
 .totals b{font-family:Arial,sans-serif;font-size:23px;font-weight:900}
 .totals b small{font-family:Arial,sans-serif;color:#ff8a31;font-size:7px;letter-spacing:.08em}
 .totals i{width:1px;height:28px;background:#34629c}
-.bottom-bar>p{justify-self:end;margin:0;color:#7898c5;font-size:8px;font-weight:750}
+.footer-meta{justify-self:end;text-align:right}
+.footer-meta p{margin:0;color:#7898c5;font-size:8px;font-weight:750}
+.footer-meta small{display:block;margin-top:4px;color:#ff9a31;font-size:7px;font-weight:850;letter-spacing:.08em}
 .spin{display:inline-block;animation:spin .9s linear infinite}
 @keyframes spin{to{transform:rotate(360deg)}
 }
@@ -194,7 +196,7 @@ body{margin:0;background:var(--navy);color:var(--white);font-family:Arial,sans-s
 .podium-zone{min-height:500px}
 .ranking-zone{width:min(920px,100%);margin:0 auto;padding-bottom:24px}
 .bottom-bar{grid-template-columns:1fr auto}
-.bottom-bar>p{display:none}
+.footer-meta{grid-column:1/-1;justify-self:center;margin-top:8px;text-align:center}
 }
 @media(max-width:680px){.battle-page{padding:13px 12px 0}
 .page-header{grid-template-columns:1fr auto;gap:10px}
