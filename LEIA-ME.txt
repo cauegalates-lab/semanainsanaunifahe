@@ -1,25 +1,34 @@
 PAINEL BATALHA DOS LÍDERES — UNIFAHE
 
-COMO CONECTAR À PLANILHA
+COMO USAR COM SEU APPS SCRIPT ATIVO
 
 1. Abra a planilha que possui a aba Vendas.
 2. Acesse Extensões > Apps Script.
-3. Apague o conteúdo existente somente se esse projeto estiver vazio. Se já houver código, adicione o conteúdo do arquivo Code.gs sem remover as funções atuais.
-4. Clique em Implantar > Nova implantação > Aplicativo da Web.
-5. Execute como: Você. Quem pode acessar: Qualquer pessoa.
-6. Copie a URL final que termina em /exec.
-7. Abra o arquivo app.js e cole essa URL na linha:
+3. Substitua o conteúdo atual pelo arquivo Code.gs deste pacote. Ele já contém todo o seu código anterior e acrescenta o ranking dentro do mesmo doGet.
+4. Salve o projeto.
+5. Acesse Implantar > Gerenciar implantações, edite a implantação ativa e selecione Nova versão.
+6. Mantenha: Executar como Você e acesso para Qualquer pessoa.
+7. Copie a mesma URL final que termina em /exec.
+8. Abra o arquivo app.js e cole somente essa URL base na linha:
    const GOOGLE_SCRIPT_URL = '';
-8. Envie index.html, styles.css e app.js para a raiz do repositório no GitHub.
+9. Envie index.html, styles.css, app.js e a pasta assets para a raiz do repositório no GitHub.
+
+O painel acrescenta automaticamente a rota:
+?rota=rankingLideres
+
+Não crie outro doGet e não acrescente parâmetros manualmente à constante GOOGLE_SCRIPT_URL.
 
 LEITURA DOS DADOS
 
 - Aba: Vendas
+- O ranking considera somente as vendas do dia atual
+- Coluna B: dia da venda
+- Coluna C: mês da venda
 - Coluna E: nome do líder
 - Coluna G: conta 1 Quitado quando o conteúdo possui a palavra QUITADO
 - Coluna R: soma a quantidade de cursos/matrículas
 - Atualização automática: a cada 60 segundos
 - Ordenação: maior quantidade de matrículas; em caso de empate, maior quantidade de quitados
 
-Se os nomes estiverem em outra coluna, altere COLUNA_NOME no início do Code.gs.
+Se os nomes estiverem em outra coluna, altere CONFIG_RANKING_LIDERES.COLUNA_NOME no início do Code.gs.
 Os números das colunas seguem o padrão: E = 5, G = 7 e R = 18.
