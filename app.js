@@ -1,5 +1,5 @@
 // Cole entre as aspas a URL /exec da implantação do Google Apps Script.
-const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzXCgSQ7yrj3evtyX6U9D7B5uBVlmtBWC5vayHc3yA24MujmrSQtEgERn9oFORDzmYv/exec';
+const GOOGLE_SCRIPT_URL = '';
 const AUTO_REFRESH_MS = 60000;
 
 const PROFILE_PHOTOS = {
@@ -25,15 +25,15 @@ const SAMPLE_DATA = [
 let leaders = SAMPLE_DATA;
 let loading = false;
 const $ = id => document.getElementById(id);
-const sorted = () => [...leaders].sort((a,b) => b.matriculas-a.matriculas || b.quitados-a.quitados);
+const sorted = () => [...leaders].sort((a,b) => Number(b.quitados>0)-Number(a.quitados>0) || b.matriculas-a.matriculas || b.quitados-a.quitados);
 
 function render(){
-  const ranking=sorted(), order=[ranking[1],ranking[0],ranking[2]], positions=[2,1,3];
-  $('podiumGrid').innerHTML=order.map((leader,i)=>{
-    const position=positions[i];
+  const ranking=sorted(), qualified=ranking.filter(leader=>leader.quitados>0).slice(0,3), order=[qualified[1],qualified[0],qualified[2]].filter(Boolean);
+  $('podiumGrid').innerHTML=order.length?order.map(leader=>{
+    const position=qualified.indexOf(leader)+1;
     return `<article class="podium-person place-${position}"><div class="medal">${position===1?'♛':position}</div><div class="podium-avatar"><img src="${PROFILE_PHOTOS[leader.name]}" alt="Foto de ${leader.name}"></div><small>${position}º LUGAR</small><h2>${leader.name}</h2><div class="podium-results"><div><b>${leader.quitados}</b><span>QUITADOS</span></div><i></i><div><b>${leader.matriculas}</b><span>MATRÍCULAS</span></div></div><div class="step"><b>${position}</b></div></article>`;
-  }).join('');
-  $('rankingList').innerHTML=ranking.map((leader,index)=>`<article class="ranking-row row-${index+1}"><span class="row-position">${String(index+1).padStart(2,'0')}</span><span class="row-avatar"><img src="${PROFILE_PHOTOS[leader.name]}" alt=""></span><div class="row-name"><strong>${leader.name}</strong><small>LÍDER DE BAIA</small></div><div class="result result-quitado"><b>${leader.quitados}</b><span>QUITADOS</span></div><div class="result result-matricula"><b>${leader.matriculas}</b><span>MATRÍCULAS</span></div></article>`).join('');
+  }).join(''):`<div class="empty-podium"><span>♛</span><strong>Aguardando o primeiro Quitado</strong><small>O pódio será liberado após a classificação</small></div>`;
+  $('rankingList').innerHTML=ranking.map((leader,index)=>`<article class="ranking-row ${leader.quitados>0?`row-${index+1}`:'row-unqualified'}"><span class="row-position">${String(index+1).padStart(2,'0')}</span><span class="row-avatar"><img src="${PROFILE_PHOTOS[leader.name]}" alt=""></span><div class="row-name"><strong>${leader.name}</strong><small>${leader.quitados>0?'LÍDER CLASSIFICADO':'AGUARDANDO QUITADO'}</small></div><div class="result result-quitado"><b>${leader.quitados}</b><span>QUITADOS</span></div><div class="result result-matricula"><b>${leader.matriculas}</b><span>MATRÍCULAS</span></div></article>`).join('');
   $('totalQuitados').innerHTML=`${leaders.reduce((s,l)=>s+l.quitados,0)} <small>QUITADOS</small>`;
   $('totalMatriculas').innerHTML=`${leaders.reduce((s,l)=>s+l.matriculas,0)} <small>MATRÍCULAS</small>`;
 }

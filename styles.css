@@ -36,6 +36,11 @@ body{margin:0;background:var(--navy);color:var(--white);font-family:Arial,sans-s
 .place-1{order:2}
 .place-2{order:1}
 .place-3{order:3}
+.place-1:only-child{grid-column:2}
+.empty-podium{grid-column:1/-1;align-self:center;justify-self:center;display:flex;flex-direction:column;align-items:center;gap:8px;padding:28px;text-align:center}
+.empty-podium span{color:#ff9a1f;font-size:52px;text-shadow:0 0 25px rgba(255,104,16,.55)}
+.empty-podium strong{font-size:20px}
+.empty-podium small{color:#8199bb;font-size:9px;font-weight:850;letter-spacing:.1em;text-transform:uppercase}
 .medal{display:grid;place-items:center;width:36px;height:36px;margin-bottom:5px;border:2px solid #ffbd50;border-radius:50%;background:linear-gradient(#ff9d17,#b83c00);box-shadow:0 4px 0 #6d1c00,0 0 18px rgba(255,116,22,.45);font-family:Arial,sans-serif;font-size:18px;font-weight:900}
 .place-1 .medal{width:auto;height:45px;border:0;background:none;box-shadow:none;color:#ffc64d;font-size:45px;text-shadow:0 5px 0 #7c3100}
 .podium-avatar{display:grid;place-items:center;width:124px;height:124px;padding:5px;overflow:hidden;border:4px solid #158cff;border-radius:50%;background:linear-gradient(145deg,#0b65cf,#061839);box-shadow:inset 0 0 0 4px #05214c,0 8px 0 #001b50,0 14px 28px rgba(0,0,0,.48)}
@@ -73,6 +78,7 @@ body{margin:0;background:var(--navy);color:var(--white);font-family:Arial,sans-s
 .row-avatar{display:grid;place-items:center;width:52px;height:52px;overflow:hidden;border:2px solid #288fe8;border-radius:50%;background:#05265a;box-shadow:inset 0 0 0 2px #031a3d,0 3px 7px rgba(0,0,0,.35)}
 .row-avatar img{display:block;width:100%;height:100%;object-fit:cover;object-position:center 31%;transform:scale(1.42)}
 .row-1 .row-avatar{border-color:#ff921f;background:#692200;box-shadow:inset 0 0 0 2px #4d1800,0 0 12px rgba(255,103,11,.35)}
+.row-unqualified .row-name small{color:#ff9a2a}
 .row-name{min-width:0}
 .row-name strong{display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:17px}
 .row-name small{display:block;margin-top:3px;color:#8199bb;font-size:8px;font-weight:800;letter-spacing:.1em}
@@ -95,7 +101,59 @@ body{margin:0;background:var(--navy);color:var(--white);font-family:Arial,sans-s
 .spin{display:inline-block;animation:spin .9s linear infinite}
 @keyframes spin{to{transform:rotate(360deg)}
 }
-@media(max-width:1280px){.battle-page{overflow:auto}
+@media(min-width:1100px) and (max-width:1450px){
+.battle-content{grid-template-columns:minmax(430px,.95fr) minmax(520px,1.2fr);gap:clamp(22px,2.4vw,38px)}
+.column-labels{grid-template-columns:1fr 78px 88px;padding-left:96px}
+.ranking-row{grid-template-columns:40px 46px minmax(120px,1fr) 78px 88px;gap:7px;padding-inline:8px}
+}
+@media(min-width:1100px) and (max-height:900px){
+.battle-page{padding-top:10px}
+.page-header{min-height:50px}
+.brand-logo{width:200px}
+.day-flag{padding:4px 18px 4px 5px;font-size:11px}
+.day-flag b{width:32px;height:32px;font-size:16px}
+.sync-button{padding:8px 12px;font-size:10px}
+.hero-title{margin:4px auto 9px;padding:0 18px 10px}
+.title-kicker{font-size:8px}
+.hero-title h1{gap:16px;margin-top:0}
+.hero-title h1 span{font-size:clamp(50px,5.1vw,76px)}
+.hero-title h1 strong{font-size:clamp(47px,4.9vw,72px)}
+.hero-title p{margin-top:8px;font-size:8px}
+.battle-content{gap:clamp(20px,2.8vw,46px);padding-bottom:5px}
+.podium-zone{min-height:430px}
+.podium-grid{padding-top:12px}
+.medal{width:30px;height:30px;font-size:15px}
+.place-1 .medal{height:38px;font-size:38px}
+.podium-avatar{width:102px;height:102px}
+.place-1 .podium-avatar{width:128px;height:128px}
+.podium-person>small{margin-top:8px;font-size:8px}
+.podium-person h2{min-height:36px;margin:4px 0 2px;font-size:16px}
+.podium-results{gap:9px}
+.podium-results b{font-size:30px}
+.podium-results span{font-size:6px}
+.podium-results i{height:30px}
+.step{height:78px;margin-top:8px;padding-top:8px}
+.step b{font-size:44px}
+.place-1 .step{height:110px}
+.place-2 .step{height:92px}
+.ranking-heading{padding-bottom:7px}
+.orange-star{font-size:22px}
+.ranking-heading strong{font-size:17px}
+.data-state{font-size:8px}
+.column-labels{padding-bottom:4px;font-size:7px}
+.ranking-list{gap:5px}
+.ranking-row{min-height:55px;padding-block:5px}
+.row-position{font-size:20px}
+.row-1 .row-position{font-size:27px}
+.row-avatar{width:42px;height:42px}
+.row-name strong{font-size:14px}
+.row-name small{font-size:7px}
+.result b{font-size:28px}
+.bottom-bar{min-height:54px;padding-block:5px}
+.point-badge b{font-size:15px}
+.totals b{font-size:21px}
+}
+@media(max-width:1099px){.battle-page{overflow:auto}
 .battle-content{grid-template-columns:1fr}
 .podium-zone{min-height:500px}
 .ranking-zone{width:min(920px,100%);margin:0 auto;padding-bottom:24px}
@@ -134,4 +192,32 @@ body{margin:0;background:var(--navy);color:var(--white);font-family:Arial,sans-s
 .totals{justify-content:space-between;margin-top:10px;padding-top:8px;border-top:1px solid #24538c}
 .totals>span{display:none}
 .orange-ring{opacity:.5}
+}
+@media(max-width:420px){
+.battle-page{padding:10px 8px 0}
+.brand-logo{width:140px}
+.day-flag{gap:5px;padding:3px 9px 3px 4px}
+.day-flag b{width:26px;height:26px;font-size:13px}
+.hero-title{margin-top:14px;padding-bottom:11px}
+.title-kicker{font-size:8px}
+.hero-title h1 span{font-size:52px}
+.hero-title h1 strong{font-size:44px}
+.hero-title p{padding:0 10px;font-size:7px}
+.podium-zone{min-height:360px}
+.podium-avatar{width:72px;height:72px}
+.place-1 .podium-avatar{width:90px;height:90px}
+.podium-person h2{max-width:98px;min-height:32px;font-size:11px}
+.podium-results b{font-size:22px}
+.step{height:80px}
+.place-1 .step{height:108px}
+.place-2 .step{height:92px}
+.ranking-heading{gap:8px;align-items:flex-start}
+.data-state{font-size:7px}
+.column-labels{grid-template-columns:1fr 46px 54px;padding-left:72px;font-size:6px}
+.ranking-row{grid-template-columns:26px 34px minmax(70px,1fr) 46px 54px;min-height:58px}
+.row-avatar{width:34px;height:34px}
+.row-name strong{font-size:10px}
+.result b{font-size:22px}
+.bottom-bar{margin-inline:-8px;padding-inline:8px}
+.totals b{font-size:19px}
 }
