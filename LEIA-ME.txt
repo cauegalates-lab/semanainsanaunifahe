@@ -8,9 +8,8 @@ COMO USAR COM SEU APPS SCRIPT ATIVO
 4. Salve o projeto.
 5. Acesse Implantar > Gerenciar implantações, edite a implantação ativa e selecione Nova versão.
 6. Mantenha: Executar como Você e acesso para Qualquer pessoa.
-7. Copie a mesma URL final que termina em /exec.
-8. Abra o arquivo app.js e cole somente essa URL base na linha:
-   const GOOGLE_SCRIPT_URL = '';
+7. A URL final da implantação ativa já está configurada no arquivo app.js.
+8. Se criar outra implantação no futuro, substitua apenas o conteúdo da constante GOOGLE_SCRIPT_URL pela nova URL terminada em /exec.
 9. Envie index.html, styles.css, app.js e a pasta assets para a raiz do repositório no GitHub.
 
 O painel acrescenta automaticamente a rota:

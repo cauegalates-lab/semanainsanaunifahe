@@ -1,13 +1,13 @@
-// Cole entre as aspas a URL /exec da implantação do Google Apps Script.
+// URL /exec da implantação ativa do Google Apps Script.
 const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzXCgSQ7yrj3evtyX6U9D7B5uBVlmtBWC5vayHc3yA24MujmrSQtEgERn9oFORDzmYv/exec';
-const AUTO_REFRESH_MS = 300000;
+const AUTO_REFRESH_MS = 60000;
 
 const PROFILE_PHOTOS = {
   'Beatriz Cunha':'assets/profiles/beatriz-cunha.jpg',
   'Gabriel Gorgonio':'assets/profiles/gabriel-gorgonio.jpg',
   'Letícia Vieira':'assets/profiles/leticia-vieira.jpg',
   'Cauê Galates':'assets/profiles/caue-galates.jpg',
-  'Alana Santos':'assets/profiles/alana-santos.png',
+  'Alana Santos':'assets/profiles/alana-santos.jpg',
   'Giseli de Jesus':'assets/profiles/giseli-de-jesus.jpg',
   'Nathália':'assets/profiles/nathalia.jpg'
 };
