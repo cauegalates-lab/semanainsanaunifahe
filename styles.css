@@ -112,7 +112,7 @@ body{margin:0;background:var(--navy);color:var(--white);font-family:Arial,sans-s
 .page-header,.hero-title,.bottom-bar{flex-shrink:0}
 .battle-content{min-height:0;overflow:hidden}
 .podium-zone,.ranking-zone{height:100%;min-height:0}
-.ranking-zone{align-self:stretch;justify-content:flex-start;padding:5px 0 10px}
+.ranking-zone{align-self:stretch;justify-content:flex-start;padding:5px 0 10px;transform:translateY(-24px)}
 .ranking-list{min-height:0}
 .hero-title{align-self:flex-start;width:min(920px,72vw);margin-left:clamp(55px,6vw,120px);text-align:left}
 .hero-title h1{justify-content:flex-start}
@@ -246,6 +246,7 @@ body{margin:0;background:var(--navy);color:var(--white);font-family:Arial,sans-s
 .place-1 .step{height:70px}
 .place-2 .step{height:60px}
 .ranking-heading{padding-bottom:2px}
+.ranking-zone{transform:translateY(-18px)}
 .orange-star{font-size:16px}
 .ranking-heading strong{font-size:13px}
 .data-state{font-size:6px}
@@ -283,6 +284,7 @@ body{margin:0;background:var(--navy);color:var(--white);font-family:Arial,sans-s
 .place-1 .step{height:56px}
 .place-2 .step{height:49px}
 .ranking-heading strong{font-size:11px}
+.ranking-zone{transform:translateY(-12px)}
 .column-labels{font-size:5px}
 .ranking-list{gap:1px}
 .ranking-row{min-height:33px;padding-block:0}
@@ -385,7 +387,7 @@ body{margin:0;background:var(--navy);color:var(--white);font-family:Arial,sans-s
 .compact-tv .hero-title p{display:none}
 .compact-tv .battle-content{grid-template-columns:minmax(210px,.82fr) minmax(350px,1.3fr);min-height:0;gap:8px;overflow:hidden;padding-bottom:0}
 .compact-tv .podium-zone,.compact-tv .ranking-zone{width:auto;height:100%;min-height:0;margin:0;padding:0}
-.compact-tv .ranking-zone{align-self:stretch;justify-content:flex-start;padding:2px 0 8px}
+.compact-tv .ranking-zone{align-self:stretch;justify-content:flex-start;padding:2px 0 8px;transform:translateY(-16px)}
 .compact-tv .podium-grid{padding-top:0}
 .compact-tv .medal{width:19px;height:19px;margin-bottom:1px;font-size:9px;box-shadow:0 2px 0 #6d1c00}
 .compact-tv .place-1 .medal{height:22px;font-size:22px}
@@ -438,6 +440,7 @@ body{margin:0;background:var(--navy);color:var(--white);font-family:Arial,sans-s
 .compact-tv .hero-title h1 span{font-size:23px}
 .compact-tv .hero-title h1 strong{font-size:21px}
 .compact-tv .column-labels{display:none}
+.compact-tv .ranking-zone{transform:translateY(-10px)}
 .compact-tv .ranking-row{min-height:26px;padding-block:0}
 .compact-tv .podium-avatar{width:46px;height:46px}
 .compact-tv .place-1 .podium-avatar{width:56px;height:56px}
