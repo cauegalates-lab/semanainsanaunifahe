@@ -89,6 +89,7 @@ var CONFIG_META_MILHAO = {
  * - coluna E: nome do líder
  * - coluna G: forma/situação da venda
  *   (QUITADO ou CARTÃO contam como Quitado; os demais contam só como venda)
+ * - coluna K: valor da venda/faturamento
  * - coluna R: quantidade de cursos/matrículas
  */
 var CONFIG_RANKING_LIDERES = {
@@ -98,6 +99,7 @@ var CONFIG_RANKING_LIDERES = {
   COLUNA_MES: 3,        // C
   COLUNA_NOME: 5,       // E
   COLUNA_QUITADO: 7,    // G
+  COLUNA_VALOR: 11,     // K
   COLUNA_CURSOS: 18,    // R
   CACHE_SEGUNDOS: 60,
   FUSO_HORARIO: "America/Sao_Paulo"
@@ -394,7 +396,7 @@ function montarDadosRankingLideres() {
 
   var cache = CacheService.getScriptCache();
   var cacheKey = [
-    "ranking_lideres_v5",
+    "ranking_lideres_v6",
     diaHoje,
     mesHoje
   ].join("_");
@@ -427,7 +429,8 @@ function montarDadosRankingLideres() {
     totais[normalizarTexto(nome)] = {
       name: nome,
       quitados: 0,
-      matriculas: 0
+      matriculas: 0,
+      faturamento: 0
     };
   });
 
@@ -460,6 +463,10 @@ function montarDadosRankingLideres() {
       CONFIG_RANKING_LIDERES.COLUNA_QUITADO -
       CONFIG_RANKING_LIDERES.COLUNA_DIA;
 
+    var indiceValor =
+      CONFIG_RANKING_LIDERES.COLUNA_VALOR -
+      CONFIG_RANKING_LIDERES.COLUNA_DIA;
+
     var indiceCursos =
       CONFIG_RANKING_LIDERES.COLUNA_CURSOS -
       CONFIG_RANKING_LIDERES.COLUNA_DIA;
@@ -489,6 +496,11 @@ function montarDadosRankingLideres() {
 
       lider.matriculas += converterNumeroRankingLideres(
         linha[indiceCursos]
+      );
+
+      lider.faturamento = arredondarMoedaRankingLideres(
+        lider.faturamento +
+        converterNumeroRankingLideres(linha[indiceValor])
       );
     });
   }
@@ -534,12 +546,18 @@ function converterNumeroRankingLideres(valor) {
 
   var texto = String(valor || "")
     .trim()
+    .replace(/[^0-9,.-]/g, "")
     .replace(/\./g, "")
     .replace(",", ".");
 
   var numero = Number(texto);
 
   return isNaN(numero) ? 0 : numero;
+}
+
+
+function arredondarMoedaRankingLideres(valor) {
+  return Math.round((Number(valor) || 0) * 100) / 100;
 }
 
 
